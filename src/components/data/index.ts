@@ -1,5 +1,5 @@
 import { v4 as uuid } from "uuid";
-import { IProduct } from "../interfaces";
+import { IFromInput, IProduct } from "../interfaces";
 
 export const productList: IProduct[] = [
   {
@@ -122,4 +122,16 @@ export const productList: IProduct[] = [
         "https://media.ed.edmunds-media.com/mercedes-benz/gle-class/2024/oem/2024_mercedes-benz_gle-class_4dr-suv_gle-450-4matic_fq_oem_2_815x543.jpg",
     },
   },
+];
+
+export const fromInputLists: IFromInput[] = [
+  { id: "title", name: "title", label: "Product Title", type: "text" },
+  {
+    id: "description",
+    name: "description",
+    label: "Product Description",
+    type: "text",
+  },
+  { id: "imageUrl", name: "imageUrl", label: "Image URL", type: "text" },
+  { id: "price", name: "price", label: "Product Price", type: "number" },
 ];

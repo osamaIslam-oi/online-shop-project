@@ -1,8 +1,9 @@
 import { useState } from "react";
 import Card from "./components/Card";
 import Modal from "./components/UI/Modal";
-import { productList } from "./components/data";
+import { fromInputLists, productList } from "./components/data";
 import { Button } from "@headlessui/react";
+import Input from "./components/UI/Input";
 
 function App() {
   /*-----  State -----*/
@@ -20,6 +21,18 @@ function App() {
   /*-----  Render -----*/
   const renderProductList = productList.map((product) => (
     <Card key={product.id} product={product} />
+  ));
+
+  const renderInputList = fromInputLists.map((input) => (
+    <div className="flex flex-col ">
+      <label
+        className="mb-2 text-sm font-medium text-gray-700"
+        htmlFor={input.id}
+      >
+        {input.label}
+      </label>
+      <Input type={input.type} name={input.name} id={input.id} />
+    </div>
   ));
 
   return (
@@ -40,13 +53,16 @@ function App() {
           closeModal={closeModal}
           title="ADD A NEW PROJECT"
         >
-          <div className="flex items-center space-x-3">
-            <Button className="text-black bg-gray-400 hover:bg-gray-300 rounded-md p-2.5">
-              Cancel
-            </Button>
-            <Button className="text-white bg-indigo-600 hover:bg-indigo-400 rounded-md p-2.5">
-              Submit
-            </Button>
+          <div className="space-y-3">
+            {renderInputList}
+            <form className="flex items-center space-x-3">
+              <Button className="text-black bg-gray-400 hover:bg-gray-300 rounded-md p-2.5 w-full">
+                Cancel
+              </Button>
+              <Button className="text-white bg-indigo-600 hover:bg-indigo-400 rounded-md p-2.5 w-full">
+                Submit
+              </Button>
+            </form>
           </div>
         </Modal>
       </main>

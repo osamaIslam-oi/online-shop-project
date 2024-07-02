@@ -14,7 +14,7 @@ const Button = ({
 }: iProps) => {
   return (
     <button
-      className={`${className} ${width}  " text-white rounded-md p-2.5"`}
+      className={`${className} ${width}  "text-white rounded-md p-2.5"`}
       {...props}
     >
       {children}
