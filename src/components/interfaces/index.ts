@@ -3,7 +3,7 @@ export interface IProduct {
   title: string;
   description: string;
   imageURL: string;
-  price: number;
+  price: string;
   color: string[];
   category: {
     name: string;
@@ -13,7 +13,7 @@ export interface IProduct {
 
 export interface IFromInput {
   id: string;
-  name: string;
+  name: "title" | "description" | "imageURL" | "price";
   label: string;
   type: string;
 }
